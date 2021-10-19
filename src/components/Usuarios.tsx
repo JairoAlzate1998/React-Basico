@@ -2,7 +2,7 @@ import { useUsuarios } from '../Hooks/useUsuarios';
 import { Usuario } from '../interfaces/reqRes';
 export const Usuarios = () => {
   
-  const {cargarUsuarios, usuarios} = useUsuarios();
+  const {paginaAnterior, paginaSiguiente, usuarios} = useUsuarios();
 
   const renderItem = ({
     id,
@@ -44,7 +44,11 @@ export const Usuarios = () => {
         </thead>
         <tbody>{usuarios.map(renderItem)}</tbody>
       </table>
-      <button className="btn btn-primary" onClick={cargarUsuarios}>
+      <button className="btn btn-primary" onClick={paginaAnterior}>
+        Anteriores
+      </button>
+      &nbsp;
+      <button className="btn btn-primary" onClick={paginaSiguiente}>
         Siguientes
       </button>
     </>
